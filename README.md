@@ -1,16 +1,11 @@
-# Flappy-bird-python
-A basic Flappy Bird game made in Python
+# RL_for_FlappyBird
+RL compatible version of Flappy Bird
 
-I took the assets from https://github.com/zhaolingzhi/FlapPyBird-master | Credits to him
-
-## Current State:
-![Screenshot](https://github.com/LeonMarqs/Flappy-bird-python/blob/master/Screenshot_1.png)
+I adopted the basic game implementation from https://github.com/LeonMarqs/Flappy-bird-python | Credits to it
 
 ## Dependence:
 * pygame
 
-## Contribution
-It's a simple model, so I'd be very grateful if you could help me to improve the game.
 
 
 
