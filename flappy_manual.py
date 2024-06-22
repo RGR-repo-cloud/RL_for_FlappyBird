@@ -20,6 +20,7 @@ wing = 'assets/audio/wing.wav'
 hit = 'assets/audio/hit.wav'
 
 pygame.mixer.init()
+random.seed(0)
 
 
 class Bird(pygame.sprite.Sprite):
@@ -55,6 +56,9 @@ class Bird(pygame.sprite.Sprite):
     def begin(self):
         self.current_image = (self.current_image + 1) % 3
         self.image = self.images[self.current_image]
+
+    def roofed(self):
+        return self.rect[1] < 0
 
 
 
@@ -173,7 +177,10 @@ while begin:
     pygame.display.update()
 
 
+score = 0
+
 while True:
+    
 
     clock.tick(15)
 
@@ -214,9 +221,14 @@ while True:
     pygame.display.update()
 
     if (pygame.sprite.groupcollide(bird_group, ground_group, False, False, pygame.sprite.collide_mask) or
-            pygame.sprite.groupcollide(bird_group, pipe_group, False, False, pygame.sprite.collide_mask)):
+            pygame.sprite.groupcollide(bird_group, pipe_group, False, False, pygame.sprite.collide_mask) or
+            bird.roofed()):
         pygame.mixer.music.load(hit)
         pygame.mixer.music.play()
         time.sleep(1)
+        print(score)
         break
+
+    score += 1
+
 
